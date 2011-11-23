@@ -76,6 +76,11 @@ public class Dealer {
                 }
                 else break;
             }
+            
+            if ((dealerTotal <21) && (playerTotal < 21) && (dealerTotal>playerTotal))
+                System.out.println("The dealer wins");
+            if ((dealerTotal <21) && (playerTotal < 21) && (dealerTotal<playerTotal))
+                System.out.println("The player wins");
             if (dealerTotal > 21){
                 System.out.println("The dealer total is " + dealerTotal + " so the dealer loses");
             }
