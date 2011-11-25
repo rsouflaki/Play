@@ -22,7 +22,7 @@ public class Blackjack2 {
     Random randomGenerator = new Random();
     
     void drawPlayerCard(){
-        playerCard = cardArray[randomGenerator.nextInt(11) + 1];
+        playerCard = cardArray[randomGenerator.nextInt(11)];
         playerTotal += playerCard;
         System.out.println("The player draws " +playerCard+ "and the new total is " +playerTotal);
     }
