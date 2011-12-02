@@ -78,15 +78,16 @@ public class Dealer {
             }
             
             if ((dealerTotal <21) && (playerTotal < 21) && (dealerTotal>playerTotal))
-                System.out.println("The dealer wins");
+                System.out.println("The dealer wins.");
             if ((dealerTotal <21) && (playerTotal < 21) && (dealerTotal<playerTotal))
-                System.out.println("The player wins");
-            if (dealerTotal > 21){
-                System.out.println("The dealer total is " + dealerTotal + " so the dealer loses");
-            }
-            if (dealerTotal == 21){
-             System.out.println("The dealer has 21 and wins!");
-         }
+                System.out.println("The player wins.");
+            if (dealerTotal > 21)
+                System.out.println("The dealer total is " + dealerTotal + " so the dealer loses.");
+            if (dealerTotal == 21)
+                System.out.println("The dealer has 21 and wins!");
+            if (dealerTotal == playerTotal)
+                System.out.println("Draw.");
+         
         
         
        
