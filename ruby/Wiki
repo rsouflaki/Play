@@ -1,0 +1,11 @@
+http://www.vogella.de/articles/Git/article.html
+
+    See status: git status
+    See local changes: git diff [Filename]
+    Add a file: git add Filename
+    Remove a file: git rm Filename
+    Commit changes to local: git commit -a -m "message"
+    Pull changes from server: git pull
+    Push changes to server: git push
+    See server changes before pulling: git fetch git diff origin/master
+
