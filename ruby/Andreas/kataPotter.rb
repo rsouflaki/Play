@@ -1,47 +1,28 @@
 def price(books)
-  counters = [0, 0, 0, 0, 0]
-  puts counters
+  counters = Hash.new(0) 
   books.each {|book_type|
-    (0..4).each {|y|
-      if y  == book_type 
-        counters[y] += 1
-      end
-    }
+    counters[book_type] += 1
   }
-  #puts books.to_s
-  #puts counters.to_s
   price = 0
   loop {
     combo = [0, 0, 0, 0, 0]
     comboCount = 0
-    counters.length.times {|i|
-      if counters[i] > 0
-        combo[i] = 1 
+    counters.each {|key, value|
+      if value > 0
+        combo[key] = 1 
         comboCount += 1
       end
     }
     
-    break if comboCount < 2
-    discount = 0
-    if comboCount == 2
-      discount = 0.05
-    elsif comboCount == 3
-      discount = 0.1
-    elsif comboCount == 4
-      discount = 0.2
-    else 
-      discount = 0.25
-    end
+    break if comboCount == 0 
+    discounts = {0=>0, 1=>0, 2=>0.05, 3=>0.1, 4=>0.2, 5=>0.25}
+    discount = discounts[comboCount]
     price += 8*comboCount*(1-discount)    
-    counters.length.times {|i|
-      counters[i] -= combo[i]
+    counters.each {|key, value|
+      counters[key] -= combo[key]
     }
   }
 
-  # add the ones that don't make combos
-  counters.each{|i|
-    price += 8*i
-  }
   return price
 end
 
