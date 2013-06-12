@@ -23,17 +23,36 @@
 
 # Inflation is OK
 
-puts "Enter the pressure of the right front tire: "
-rfp = gets.chomp.to_f
-puts "Enter the pressure of the left front tire: "
-lfp = gets.chomp.to_f
-puts "Enter the pressure of the right rear tire: "
-rrp = gets.chomp.to_f
-puts "Enter the pressure of the left rear tire: "
-lrp = gets.chomp.to_f
+
+def tirepressure(rfp, lfp, rrp, lrp)
+	@rfp = rfp
+	@lfp = lfp
+	@rrp = rrp
+	@lrp = lrp
+	@warning = false
 
 
-@warning = false
+	puts "Right front pressure: #{@rfp}"
+	check(@rfp)
+
+	puts "Left front pressure: #{@lfp}"
+	check(@lfp)
+
+	puts "Right rear pressure: #{@rrp}"
+	check(@rrp)
+
+	puts "Left rear pressure: #{@lrp}"
+	check(@lrp)
+
+	if (@rfp == @lfp && @rrp == @lrp) && (@warning == false)
+		puts "Inflation is OK"
+		return true
+	else
+		puts "Inflation is bad"
+		return false
+	end
+end
+
 
 def check(pressure)
 	if pressure < 35 || pressure > 45
@@ -42,20 +61,4 @@ def check(pressure)
 	end
 end
 
-puts "Right front pressure: #{rfp}"
-check(rfp)
-
-puts "Left front pressure: #{lfp}"
-check(lfp)
-
-puts "Right rear pressure: #{rrp}"
-check(rrp)
-
-puts "Left rear pressure: #{lrp}"
-check(lrp)
-
-if (rfp == lfp && rrp == lrp) && (@warning == false)
-	puts "Inflation is OK"
-else
-	puts "Inflation is bad"
-end
+tirepressure(30, 40, 40, 40)
